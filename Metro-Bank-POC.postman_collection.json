@@ -162,7 +162,7 @@
 					},
 					{
 						"key": "Authorization",
-						"value": "Basic TnZHamZMV013SkpjeEVLdEZDMU05QUJUQVl3RHRHNWI6ZUFBMzQ5aTlYVW5HQVRUcg==",
+						"value": "Basic ",
 						"description": ""
 					}
 				],
@@ -187,7 +187,7 @@
 			},
 			"response": [
 				{
-					"id": "8a90f6a0-9de9-4c97-a43d-debfcca0fdad",
+					"id": "af0f2cea-45d4-4b6d-b9a2-dd13c59d6b86",
 					"name": "generate-refresh-access-token",
 					"originalRequest": {
 						"url": "http://gouravsukhija86-eval-test.apigee.net/security-processing/enterprise-auth/v1/refreshtoken",
@@ -356,7 +356,7 @@
 					},
 					{
 						"key": "Authorization",
-						"value": "Bearer OSuMezAs9trAAgU7CGy4KQB52rJU",
+						"value": "Bearer ",
 						"description": ""
 					}
 				],
@@ -388,7 +388,7 @@
 					},
 					{
 						"key": "Authorization",
-						"value": "Bearer fkvdwpqxIT0N5a0XNnp1mKKAGEng",
+						"value": "Bearer ",
 						"description": ""
 					}
 				],
