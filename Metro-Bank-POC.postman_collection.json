@@ -1,0 +1,401 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Metro-Bank-POC",
+		"_postman_id": "ba12cd65-5638-3803-3490-6b92f7a261b6",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "generate-access-token",
+			"request": {
+				"url": "https://gouravsukhija86-eval-test.apigee.net/security-processing/enterprise-auth/v1/token",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic TnZHamZMV013SkpjeEVLdEZDMU05QUJUQVl3RHRHNWI6ZUFBMzQ5aTlYVW5HQVRUcg==",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "authorization_code",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "code",
+							"value": "UOAqnj88",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "redirect_uri",
+							"value": "https://dummy.com",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "generate-auth-code",
+			"request": {
+				"url": {
+					"raw": "https://gouravsukhija86-eval-test.apigee.net/security-processing/enterprise-auth/v1/authorize?client_id=NvGjfLWMwJJcxEKtFC1M9ABTAYwDtG5b&response_type=code",
+					"protocol": "https",
+					"host": [
+						"gouravsukhija86-eval-test",
+						"apigee",
+						"net"
+					],
+					"path": [
+						"security-processing",
+						"enterprise-auth",
+						"v1",
+						"authorize"
+					],
+					"query": [
+						{
+							"key": "client_id",
+							"value": "NvGjfLWMwJJcxEKtFC1M9ABTAYwDtG5b",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "response_type",
+							"value": "code",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "generate-access-token-implicit",
+			"request": {
+				"url": {
+					"raw": "http://gouravsukhija86-eval-test.apigee.net/security-processing/enterprise-auth/v1/implicit?client_id=NvGjfLWMwJJcxEKtFC1M9ABTAYwDtG5b&response_type=token&response_code=200",
+					"protocol": "http",
+					"host": [
+						"gouravsukhija86-eval-test",
+						"apigee",
+						"net"
+					],
+					"path": [
+						"security-processing",
+						"enterprise-auth",
+						"v1",
+						"implicit"
+					],
+					"query": [
+						{
+							"key": "client_id",
+							"value": "NvGjfLWMwJJcxEKtFC1M9ABTAYwDtG5b",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "response_type",
+							"value": "token",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "response_code",
+							"value": "200",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "generate-refresh-access-token",
+			"request": {
+				"url": "http://gouravsukhija86-eval-test.apigee.net/security-processing/enterprise-auth/v1/refreshtoken",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic TnZHamZMV013SkpjeEVLdEZDMU05QUJUQVl3RHRHNWI6ZUFBMzQ5aTlYVW5HQVRUcg==",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "refresh_token",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "refresh_token",
+							"value": "Ghpv0IAdazpA8cvOxZ0urBwH5XjxzTAz",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": [
+				{
+					"id": "8a90f6a0-9de9-4c97-a43d-debfcca0fdad",
+					"name": "generate-refresh-access-token",
+					"originalRequest": {
+						"url": "http://gouravsukhija86-eval-test.apigee.net/security-processing/enterprise-auth/v1/refreshtoken",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"name": "Authorization",
+								"value": "Basic TnZHamZMV013SkpjeEVLdEZDMU05QUJUQVl3RHRHNWI6ZUFBMzQ5aTlYVW5HQVRUcg==",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "grant_type",
+									"value": "refresh_token",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "refresh_token",
+									"value": "zgPUMpqNDEEtGBq2XOkafA3DRDM2",
+									"description": "",
+									"type": "text"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "plainText",
+					"_postman_previewtype": "text",
+					"header": [
+						{
+							"name": "accept",
+							"key": "accept",
+							"value": "*/*",
+							"description": "Custom header"
+						},
+						{
+							"name": "accept-encoding",
+							"key": "accept-encoding",
+							"value": "gzip, deflate",
+							"description": "Custom header"
+						},
+						{
+							"name": "accept-language",
+							"key": "accept-language",
+							"value": "en-US,en;q=0.9,hi;q=0.8",
+							"description": "Custom header"
+						},
+						{
+							"name": "authorization",
+							"key": "authorization",
+							"value": "Basic TnZHamZMV013SkpjeEVLdEZDMU05QUJUQVl3RHRHNWI6ZUFBMzQ5aTlYVW5HQVRUcg==",
+							"description": "Custom header"
+						},
+						{
+							"name": "cache-control",
+							"key": "cache-control",
+							"value": "no-cache",
+							"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+						},
+						{
+							"name": "connection",
+							"key": "connection",
+							"value": "keep-alive",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"name": "content-length",
+							"key": "content-length",
+							"value": "67",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"name": "content-type",
+							"key": "content-type",
+							"value": "application/x-www-form-urlencoded",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "date",
+							"key": "date",
+							"value": "Tue, 06 Oct 2020 14:15:34 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "host",
+							"key": "host",
+							"value": "gouravsukhija86-eval-test.apigee.net",
+							"description": "Custom header"
+						},
+						{
+							"name": "origin",
+							"key": "origin",
+							"value": "chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop",
+							"description": "Custom header"
+						},
+						{
+							"name": "postman-token",
+							"key": "postman-token",
+							"value": "6a365813-fdd2-1989-e40f-8d963d6566b6",
+							"description": "Custom header"
+						},
+						{
+							"name": "user-agent",
+							"key": "user-agent",
+							"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.121 Safari/537.36",
+							"description": "Custom header"
+						},
+						{
+							"name": "x-forwarded-for",
+							"key": "x-forwarded-for",
+							"value": "122.177.222.178",
+							"description": "A de facto standard for identifying the originating IP address of a client connecting to a web server through an HTTP proxy or load balancer"
+						},
+						{
+							"name": "x-forwarded-port",
+							"key": "x-forwarded-port",
+							"value": "80",
+							"description": "Custom header"
+						},
+						{
+							"name": "x-forwarded-proto",
+							"key": "x-forwarded-proto",
+							"value": "http",
+							"description": "A de facto standard for identifying the originating protocol of an HTTP request, since a reverse proxy (load balancer) may communicate with a web server using HTTP even if the request to the reverse proxy is HTTPS"
+						}
+					],
+					"cookie": [],
+					"responseTime": 835,
+					"body": "grant_type=refresh_token&refresh_token=zgPUMpqNDEEtGBq2XOkafA3DRDM2"
+				}
+			]
+		},
+		{
+			"name": "request1-getAccountBalance",
+			"request": {
+				"url": "https://gouravsukhija86-eval-test.apigee.net/customer-details/bank-data/v1/customer-accounts/123456/balance",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "client_id",
+						"value": "NvGjfLWMwJJcxEKtFC1M9ABTAYwDtG5b",
+						"description": ""
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer OSuMezAs9trAAgU7CGy4KQB52rJU",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "request2-resource-not-found",
+			"request": {
+				"url": "https://gouravsukhija86-eval-test.apigee.net/customer-details/bank-data/v1/customer-accounts/123456/balance1",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "client_id",
+						"value": "NvGjfLWMwJJcxEKtFC1M9ABTAYwDtG5b",
+						"description": ""
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer fkvdwpqxIT0N5a0XNnp1mKKAGEng",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

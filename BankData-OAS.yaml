@@ -1,0 +1,183 @@
+swagger: '2.0'
+info:
+  title: Bank Data API
+  version: "1"
+  description: API for bank data
+host: gouravsukhija86-eval-test.apigee.net
+basePath:
+  /customer-details/bank-data/v1
+schemes:
+  - https
+consumes:
+  - application/json
+produces:
+  - application/json
+securityDefinitions:
+  MyAPIKey :
+    type: apiKey
+    name: client_id
+    in: header
+  auth_external:
+    type: oauth2
+    flow: implicit
+    authorizationUrl: https://gouravsukhija86-eval-test.apigee.net/authorize
+    scopes: {}
+security: 
+  - MyAPIKey: []
+  - auth_external: []
+parameters:
+  Authorization:
+    name: Authorization
+    type: string
+    in: header
+    description: the access token to access the API
+    required: true
+  client_id:
+    name: client_id
+    type: string
+    in: header
+    required: true
+    description: the api key of the application
+paths:
+  /customer-accounts/{account_number}/balance:
+    get:
+      operationId: getAccountBalance
+      summary: Retrieves the balance for a specific account.
+      description: Retrieves balance for an account number 
+      parameters: 
+        - $ref: '#/parameters/client_id'
+        - $ref: '#/parameters/Authorization'
+        - name: account_number
+          in: path
+          required: true
+          type: string
+          description: Bank account number for which balance needs to be retrieved.
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/accountBalanceResponse'
+        '400':
+          description: input validation error with attribute standard message
+          schema:
+            $ref: '#/definitions/StandardMessage'
+        '401':
+          description: Proper user authentication credentials were not provided
+          schema:
+            $ref: '#/definitions/StandardMessage'
+        '403':
+          description: The user is not authorized to make this request
+          schema:
+            $ref: '#/definitions/StandardMessage'
+        '404':
+          description: Requested resource was not found
+          schema:
+            $ref: '#/definitions/StandardMessage'
+        '500':
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/StandardMessage'
+      tags:
+        - Account
+  /customer-accounts/{account_number}/transactions:
+    get:
+      operationId: getAccountTransactions
+      summary: Retrieves the Transactions for a specific account.
+      description: Retrieves Transactions for an account number 
+      parameters: 
+        - $ref: '#/parameters/client_id'
+        - $ref: '#/parameters/Authorization'
+        - name: account_number
+          in: path
+          required: true
+          type: string
+          description: Bank account number for which balance needs to be retrieved.
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/accountTransactionResponse'
+        '400':
+          description: input validation error with attribute standard message
+          schema:
+            $ref: '#/definitions/StandardMessage'
+        '401':
+          description: Proper user authentication credentials were not provided
+          schema:
+            $ref: '#/definitions/StandardMessage'
+        '403':
+          description: The user is not authorized to make this request
+          schema:
+            $ref: '#/definitions/StandardMessage'
+        '404':
+          description: Requested resource was not found
+          schema:
+            $ref: '#/definitions/StandardMessage'
+        '500':
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/StandardMessage'
+      tags:
+        - Account
+definitions:
+  accountBalanceResponse:
+    type: object
+    properties:
+      currencyCode:
+        type: string
+        description: The 3-letter currency code defined in ISO 4217.
+      amount:
+        type: string
+        description: |-
+          The whole units of the amount.
+          For example if `currencyCode` is `"USD"`, then 1.1 unit is one US dollar and one cent.
+      accountNumber:
+        type: string
+        description: 
+          Bank account number
+    description: Represents an amount of money with its currency type.
+  accountTransactionResponse:
+    type: array
+    items:
+      $ref: '#/definitions/transactionDetails'
+  transactionDetails:
+    type: object
+    properties:
+      transaction_type:
+        type: string
+        description: The type of transaction
+        enum: 
+          - credit
+          - debit
+      amount:
+        type: string
+        description: the amount of transaction
+      currency_code:
+        type: string
+        description: curreny code for the amount
+  # Here is the definition for the Standard message structure
+  StandardMessage:
+    type: object
+    required:
+      - developerMessage
+      - messageID
+    properties:
+      userMessage:
+        type: string
+        description: User-friendly message for the Warning/Error
+      messageID:
+        type: string
+        description: A unique identification number for each message
+      developerMessage:
+        type: string
+        description: Developer information on the Warning/Error
+      severity:
+        type: string
+        enum: 
+          - informational
+          - warning
+          - error
+      code:
+          type: number
+        
+ 
